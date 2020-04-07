@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
     has_secure_password
     has_many :remedys
-    has_many :comments, :through => :remedys
+    has_many :remedys, :through => :comments
 end
