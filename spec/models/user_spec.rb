@@ -12,22 +12,30 @@ RSpec.describe User, :type => :model do
     )
   }
 
+  let(:user2) {
+    User.create(
+      :username => "Scrub",
+      :first_name => "Harry",
+      :last_name => "Larry",
+      :password => "password",
+      :age => 60,
+      :bio => "I like to code, play games, and have no fun."
+    )
+  }
+
   let(:corona_cure) {
     Remedy.create(
+      :user_id => user2.id,
       :title => "Cure for Corona",
       :description => "Do a dance, make a little, get down tonight."
     )
   }
 
-  let(:corona_comment) {
-    Comment.create(
-      :content => "Man this really worked for me."
-    )
-  }
-
-  let(:category) {
-    Category.create(
-      :name => "Wellness"
+  let(:indigestion_cure) {
+    Remedy.create(
+      :user_id => user2.id,
+      :title => "Indigestion Cure",
+      :description => "Pepto Bismo"
     )
   }
 
@@ -39,18 +47,27 @@ RSpec.describe User, :type => :model do
     expect(User.new(username: "Name")).not_to be_valid
   end
 
-  #it "has many rides" do
-   # first_ride = Ride.create(:user_id => user.id, :attraction_id => roller_coaster.id)
-    #second_ride = Ride.create(:user_id => user.id, :attraction_id => ferris_wheel.id)
-   # expect(user.rides.first).to eq(first_ride)
-   # expect(user.rides.last).to eq(second_ride)
-  #end
+  it "has many commented_remedies" do
+    first_comment = Comment.create(:content => "it works!", :user_id => user.id, :remedy_id => corona_cure.id)
+    second_comment = Comment.create(:content => "i love it!", :user_id => user.id, :remedy_id => indigestion_cure.id)
+    expect(user.commented_remedies.first).to eq(corona_cure)
+    expect(user.commented_remedies.last).to eq(indigestion_cure)
+  end
 
- # it "has many attractions through rides" do
-  #  user.attractions << [roller_coaster, ferris_wheel]
-   # expect(user.attractions.first).to eq(roller_coaster)
-   # expect(user.attractions.last).to eq(ferris_wheel)
- # end
+  it "has many comments" do
+    first_comment = Comment.create(:content => "it works!", :user_id => user.id, :remedy_id => corona_cure.id)
+    second_comment = Comment.create(:content => "i love it!", :user_id => user.id, :remedy_id => indigestion_cure.id)
+    expect(user.comments.first).to eq(first_comment)
+    expect(user.comments.last).to eq(second_comment)
+  end
+
+  it "has many remedies" do
+    new_user = User.create(:username => "winna", :first_name => "Harry", :last_name => "potter", :password => "password", :age => 40, :bio => "I like to code, play games, and magic.")
+    new_remedy = Remedy.create(:user_id => new_user.id, :title => "tummy cure", :description => "Pepto Bismo")
+    new_remedy2 = Remedy.create(:user_id => new_user.id, :title => "headache cure", :description => "ibs")
+    expect(new_user.remedies.first).to eq(new_remedy)
+    expect(new_user.remedies.last).to eq(new_remedy2)
+  end
 
   #it "has a method 'mood' that returns 'sad' when the user is more nauseous than happy" do
    # expect(user.mood).to eq("sad")
