@@ -31,21 +31,13 @@ RSpec.describe User, :type => :model do
     )
   }
 
-  it "is valid with a name, password, happiness, nausea, height, and tickets" do
+  it "is valid with a username, ,first_name, last_name, password, age, bio" do
     expect(user).to be_valid
   end
 
-  #it "is not valid without a password" do
-   # expect(User.new(name: "Name")).not_to be_valid
-  #end
-
-  #it "is valid with an admin boolean" do
-   # expect(admin).to be_valid
-  #end
-
-  #it "defaults to admin => false" do
-   # expect(user.admin).to eq(false)
-  #end
+  it "is not valid without a password" do
+    expect(User.new(username: "Name")).not_to be_valid
+  end
 
   #it "has many rides" do
    # first_ride = Ride.create(:user_id => user.id, :attraction_id => roller_coaster.id)
