@@ -1,11 +1,11 @@
 module LoginHelper
 
     def user_signup
-      fill_in("user[name]", :with => "Amy Poehler")
-      fill_in("user[height]", :with => "58")
-      fill_in("user[happiness]", :with => "3")
-      fill_in("user[nausea]", :with => "2")
-      fill_in("user[tickets]", :with => "15")
+      fill_in("user[username]", :with => "FakerNinja")
+      fill_in("user[first_name]", :with => "Faker")
+      fill_in("user[last_name]", :with => "Ninja")
+      fill_in("user[age]", :with => "2")
+      fill_in("user[bio]", :with => "I am the best there ever was.")
       fill_in("user[password]", :with => "password")
       click_button('Create User')
     end

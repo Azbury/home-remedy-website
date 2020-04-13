@@ -1,0 +1,23 @@
+<h1>Sign up for an account on The Home Remedy Website!</h1>
+
+<%= form_for @user  do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <br/>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br/>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br/>
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+  <br/>
+  <%= f.label :bio %>
+  <%= f.text_area :bio %>
+  <br/>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.submit %>
+<% end %>
