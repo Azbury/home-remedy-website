@@ -11,7 +11,7 @@ module LoginHelper
     end
   
     def user_login
-      select 'Mindy',from:'user_name'
+      fill_in("user[username]", :with => "Aimbot")
       fill_in("password", :with => "password")
       click_button('Sign In')
     end
@@ -30,14 +30,14 @@ module LoginHelper
     end
   
     def create_standard_user 
-      @mindy = User.create(
-        name: "Mindy",
+      @aimbot =  User.create(
+        username: "Aimbot",
+        first_name: "Austin",
+        last_name: "Asbury",
         password: "password",
-        happiness: 3,
-        nausea: 2,
-        tickets: 10,
-        height: 50
-        )
+        age: 22,
+        bio: "I like to code, play games, and have fun."
+      )
     end
   
     def create_standard_and_admin_user

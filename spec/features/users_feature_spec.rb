@@ -21,7 +21,7 @@ describe 'Feature Test: User Signup', :type => :feature do
     expect(page.get_rack_session_key('user_id')).to_not be_nil
   end
 
-  it 'successfully logs in as non-admin' do
+  it 'successfully logs in' do
     
     # user_login method is defined in login_helper.rb
     create_standard_user
@@ -29,11 +29,11 @@ describe 'Feature Test: User Signup', :type => :feature do
     expect(current_path).to eq('/signin')
     user_login
     expect(current_path).to eq('/users/1')
-    expect(page).to have_content("Mindy")
-    expect(page).to have_content("Mood")
-    expect(page).to have_content("happy")
-    expect(page).to have_content("10")
-    expect(page).to have_content("50")
+    expect(page).to have_content("Aimbot")
+    expect(page).to have_content("Austin")
+    expect(page).to have_content("Asbury")
+    expect(page).to have_content("22")
+    expect(page).to have_content("I like to code, play games, and have fun.")
   end
 
   it "on log in, successfully adds a session hash" do
