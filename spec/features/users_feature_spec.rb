@@ -50,7 +50,7 @@ describe 'Feature Test: User Signup', :type => :feature do
     expect(current_path).to eq('/')
     expect(page).to have_content("Sign Up")
   end
-  
+
 end
 
 describe 'Feature Test: User Signout', :type => :feature do
@@ -76,6 +76,81 @@ describe 'Feature Test: User Signout', :type => :feature do
     user_signup
     click_link("Log Out")
     expect(page.get_rack_session).to_not include("user_id")
+  end
+
+end
+
+describe 'Feature Test: Remedies', :type => :feature do
+
+  before :each do
+    @user = User.create(
+      :username => "Aimbot",
+      :first_name => "Austin",
+      :last_name => "Asbury",
+      :password => "password",
+      :age => 22,
+      :bio => "I like to code, play games, and have fun."
+    )
+    @corona = Remedy.create(
+      :user_id => @user.id,
+      :title => "Cure for Corona",
+      :description => "Do a dance, make a little, get down tonight."
+    )
+    @pepto = Remedy.create(
+      :user_id => @user.id,
+      :title => "Indigestion Cure",
+      :description => "Pepto Bismo"
+    )
+    @juice = Remedy.create(
+      :user_id => @user.id,
+      :title => "Juice Cleanse",
+      :description => "drink that juice, get healthy."
+  )
+    visit '/users/new'
+    user_signup
+  end
+
+  it 'has a link from the user show page to the attractions index page' do
+    expect(page).to have_content("See remedies")
+    click_link('See remedies')
+  end
+
+  it 'links from the user show page to the attractions index page' do
+    click_link('See attractions')
+    expect(current_path).to eq('/attractions')
+  end
+
+  it 'prevents users from editing/deleting/adding rides on the index page' do
+    click_link('See attractions')
+    expect(current_path).to eq('/attractions')
+    expect(page).to_not have_content("edit")
+    expect(page).to_not have_content("delete")
+    expect(page).to_not have_content("new attraction")
+  end
+
+  it 'has titles of the rides on the attractions index page' do
+    click_link('See attractions')
+    expect(page).to have_content("#{@ferriswheel.name}")
+    expect(page).to have_content("#{@rollercoaster.name}")
+  end
+
+  it "has links on the attractions index page to the attractions' show pages" do
+    click_link('See attractions')
+    expect(page).to have_content("Go on #{@ferriswheel.name}")
+    expect(page).to have_content("Go on #{@rollercoaster.name}")
+  end
+
+  it "links from the attractions index page to the attractions' show pages" do
+    click_link('See attractions')
+    click_link("Go on #{@ferriswheel.name}")
+    expect(current_path).to eq("/attractions/2")
+  end
+
+  it 'prevents users from editing/deleting a ride on the show page' do
+    click_link('See attractions')
+    click_link("Go on #{@ferriswheel.name}")
+    expect(page).to_not have_content("edit")
+    expect(page).to_not have_content("delete")
   end
 
 end
