@@ -110,28 +110,29 @@ describe 'Feature Test: Remedies', :type => :feature do
     user_signup
   end
 
-  it 'has a link from the user show page to the attractions index page' do
+  it 'has a link from the user show page to the remedies index page' do
     expect(page).to have_content("See remedies")
     click_link('See remedies')
   end
 
-  it 'links from the user show page to the attractions index page' do
-    click_link('See attractions')
-    expect(current_path).to eq('/attractions')
+  it 'links from the user show page to the remedies index page' do
+    click_link('See remedies')
+    expect(current_path).to eq('/remedies')
   end
 
-  it 'prevents users from editing/deleting/adding rides on the index page' do
-    click_link('See attractions')
-    expect(current_path).to eq('/attractions')
+  it 'prevents users from editing/deleting/adding remedies on the index page' do
+    click_link('See remedies')
+    expect(current_path).to eq('/remedies')
     expect(page).to_not have_content("edit")
     expect(page).to_not have_content("delete")
-    expect(page).to_not have_content("new attraction")
+    expect(page).to_not have_content("new remedy")
   end
 
-  it 'has titles of the rides on the attractions index page' do
-    click_link('See attractions')
-    expect(page).to have_content("#{@ferriswheel.name}")
-    expect(page).to have_content("#{@rollercoaster.name}")
+  it 'has titles of the remedies on the remedies index page' do
+    click_link('See remedies')
+    expect(page).to have_content("#{@corona.title}")
+    expect(page).to have_content("#{@juice.title}")
+    expect(page).to have_content("#{@pepto.title}")
   end
 
   it "has links on the attractions index page to the attractions' show pages" do
