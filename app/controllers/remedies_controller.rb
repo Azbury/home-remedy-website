@@ -7,11 +7,7 @@ class RemediesController < ApplicationController
     end
 
     def show
-        if session[:user_id] == nil
-            redirect_to '/'
-        else
-            @user = User.find(params[:id])
-        end
+        @remedy = Remedy.find_by(id: params[:id])
     end
 
     def new

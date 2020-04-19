@@ -135,23 +135,17 @@ describe 'Feature Test: Remedies', :type => :feature do
     expect(page).to have_content("#{@pepto.title}")
   end
 
-  it "has links on the attractions index page to the attractions' show pages" do
-    click_link('See attractions')
-    expect(page).to have_content("Go on #{@ferriswheel.name}")
-    expect(page).to have_content("Go on #{@rollercoaster.name}")
+  it "has links on the remedies index page to the remedies' show pages" do
+    click_link('See remedies')
+    expect(page).to have_content("Show #{@corona.title}")
+    expect(page).to have_content("Show #{@juice.title}")
+    expect(page).to have_content("Show #{@pepto.title}")
   end
 
-  it "links from the attractions index page to the attractions' show pages" do
-    click_link('See attractions')
-    click_link("Go on #{@ferriswheel.name}")
-    expect(current_path).to eq("/attractions/2")
-  end
-
-  it 'prevents users from editing/deleting a ride on the show page' do
-    click_link('See attractions')
-    click_link("Go on #{@ferriswheel.name}")
-    expect(page).to_not have_content("edit")
-    expect(page).to_not have_content("delete")
+  it "links from the remedies index page to the remedies' show pages" do
+    click_link('See remedies')
+    click_link("Show #{@pepto.title}")
+    expect(current_path).to eq("/remedies/2")
   end
 
 end

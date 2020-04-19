@@ -1,1 +1,3 @@
-
+<% @remedies.each do |remedy| %>
+    <%= link_to "Show #{remedy.title}", remedy_path(remedy) %>
+<% end %>
