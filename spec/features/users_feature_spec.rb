@@ -1,6 +1,11 @@
 require_relative "../rails_helper.rb"
 describe 'Feature Test: User Signup', :type => :feature do
 
+  it 'offers signup with GitHub' do
+    visit '/'
+    expect(page).to have_content('Signing in with the GitHub strategy')
+  end
+
   it 'successfully signs up' do
     visit '/users/new'
     expect(current_path).to eq('/users/new')

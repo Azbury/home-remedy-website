@@ -5,7 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1'
 gem 'bootsnap'

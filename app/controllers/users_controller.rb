@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-    
     skip_before_action :verified_user, only: [:new, :create]
-
+    
     def index
     end
 
@@ -14,7 +13,11 @@ class UsersController < ApplicationController
     end
 
     def new
-        @user = User.new
+        if session[:user_id] == nil
+            @user = User.new
+        else
+            redirect_to user_path(User.find_by(id: session[:user_id]))
+        end
     end
 
     def create

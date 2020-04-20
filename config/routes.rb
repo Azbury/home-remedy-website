@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   root 'sessions#home'
+  get '/logout' => 'sessions#destroy'
   delete 'logout' => 'sessions#destroy'
+  match '/auth/github/callback', to: 'sessions#create', via: [:get, :post]
 end
