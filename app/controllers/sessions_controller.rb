@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.try(:id)
         redirect_to user_path(user)
       elsif @user = User.find_by(username: params[:user][:username])
+        return head(:forbidden) unless @user.authenticate(params[:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
