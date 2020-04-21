@@ -10,7 +10,7 @@ class RemediesController < ApplicationController
     end
 
     def show
-        @remedy = Remedy.find_by(id: params[:id])
+        @remedy = Remedy.find(params[:id])
     end
 
     def new
@@ -20,7 +20,7 @@ class RemediesController < ApplicationController
     def create
         @remedy = Remedy.new(remedy_params)
         if @remedy.save
-            redirect_to user_remedy_path(@remedy)
+            redirect_to user_remedy_path(id: @remedy.id, user_id: current_user.id)
         else
             render :new
         end
