@@ -150,7 +150,7 @@ describe 'Feature Test: Remedies', :type => :feature do
   it "links from the remedies index page to the remedies' show pages" do
     click_link('See Remedies')
     click_link("Show #{@pepto.title}")
-    expect(current_path).to eq("/remedies/2")
+    expect(current_path).to eq("/users/1/remedies/2")
   end
 
 end
