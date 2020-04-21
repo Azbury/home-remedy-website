@@ -18,10 +18,9 @@ class RemediesController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
-        if @user.save
-            session[:user_id] = @user.id
-            redirect_to @user
+        @remedy = Remedy.new(remedy_params)
+        if @remedy.save
+            redirect_to user_remedy_path(@remedy)
         else
             render :new
         end
@@ -29,8 +28,8 @@ class RemediesController < ApplicationController
 
     private
 
-    def user_params
-        params.require(:user).permit(:username, :first_name, :last_name, :age, :bio, :password)
+    def remedy_params
+        params.require(:remedy).permit(:title, :description, :user_id)
     end
 
 end

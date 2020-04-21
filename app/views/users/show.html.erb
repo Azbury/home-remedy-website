@@ -3,5 +3,6 @@
 <%= @user.last_name %>
 <%= @user.age %>
 <%= @user.bio %>
-<%= link_to "See remedies", remedies_path %>
+<%= link_to "New Remedy", new_user_remedy_path(@user) %>
+<%= link_to "See Remedies", remedies_path %>
 <%= link_to "Log Out", logout_path, method: "delete" %>
