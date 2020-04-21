@@ -4,4 +4,7 @@ class Remedy < ActiveRecord::Base
     has_many :users, :through => :comments
     has_many :remedy_categories
     has_many :categories, :through => :remedy_categories
+    validates :title, presence: true
+    validates :title, uniqueness: true
+    validates :description, presence: true
 end
