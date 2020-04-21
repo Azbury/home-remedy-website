@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :index, :create] do
     resources :remedies, only: [:new, :index, :show]
   end
-  resources :remedies, only: [:create]
+  resources :remedies, only: [:create, :index]
   get '/signin', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   root 'sessions#home'
