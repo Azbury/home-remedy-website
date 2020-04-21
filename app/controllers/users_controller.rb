@@ -30,6 +30,10 @@ class UsersController < ApplicationController
         end
     end
 
+    def elderly
+        @elderly = User.elderly
+    end
+
     private
 
     def user_params
