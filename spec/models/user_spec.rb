@@ -69,4 +69,8 @@ RSpec.describe User, :type => :model do
     expect(new_user.remedies.last).to eq(new_remedy2)
   end
 
+  it "can tell if a user is elderly" do
+    expect(User.elderly).to eq(User.where("age >= 60"))
+  end
+
 end
