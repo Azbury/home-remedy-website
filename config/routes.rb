@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/users/elderly', to: 'users#elderly'
   resources :users, only: [:show, :new, :index, :create] do
     resources :remedies, only: [:new, :index, :show]
   end
