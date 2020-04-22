@@ -1,11 +1,11 @@
 # Home Remedy Website
 
-This Ruby Program creates a website that allows you to signup for an account and login/ signout. A user can then view the listings of all users, make/ modify their own listings, and views other user's accounts.
+This Ruby on Rails Program creates a website that allows you to perform all user account features as well as sign in and make an account through GitHub OAuth. A user can then view the listings of all remedies, post their own home remedies for everyone to see, and comment on others post to let them know how they work.
 
 ## Installation
 
-    $ git clone https://github.com/Azbury/online-marketplace-listings.git
-    $ cd online-marketplace-listings
+    $ git clone https://github.com/Azbury/home-remedy-website.git
+    $ cd home-remedy-website
     $ bundle install
 
 ## Usage
@@ -13,11 +13,11 @@ This Ruby Program creates a website that allows you to signup for an account and
 Type the commands below and go to the link provided.
 
     $ rake db:migrate
-    $ shotgun
+    $ rails s
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Azbury/online-marketplace-listings. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Azbury/home-remedy-website.git. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 ## License
 
