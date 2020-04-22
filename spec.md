@@ -13,7 +13,7 @@ URL: /users/elderly
 - [x] Include signup (how e.g. Devise) URL: /users/new
 - [x] Include login (how e.g. Devise) URL: /signin
 - [x] Include logout (how e.g. Devise) Logout link on users show page.
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth) Github
 - [ ] Include nested resource show or index (URL e.g. users/2/recipes)
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
