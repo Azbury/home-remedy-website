@@ -29,7 +29,7 @@ class RemediesController < ApplicationController
     private
 
     def remedy_params
-        params.require(:remedy).permit(:title, :description, :user_id, category_ids:[], categories_attributes: [:name])
+        params.require(:remedy).permit(:title, :description, :user_id, category_ids:[])
     end
 
 end
