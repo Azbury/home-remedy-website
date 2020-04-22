@@ -1,0 +1,4 @@
+<%= @category.name %>
+<% @category.remedies.each do |remedy|%>
+    <%= link_to "Show #{remedy.title}", user_remedy_path(id: remedy.id, user_id: remedy.user_id) %>
+<% end %>
