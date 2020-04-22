@@ -1,24 +1,24 @@
-# README
+# Home Remedy Website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Ruby Program creates a website that allows you to signup for an account and login/ signout. A user can then view the listings of all users, make/ modify their own listings, and views other user's accounts.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+    $ git clone https://github.com/Azbury/online-marketplace-listings.git
+    $ cd online-marketplace-listings
+    $ bundle install
 
-* System dependencies
+## Usage
 
-* Configuration
+Type the commands below and go to the link provided.
 
-* Database creation
+    $ rake db:migrate
+    $ shotgun
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
+Bug reports and pull requests are welcome on GitHub at https://github.com/Azbury/online-marketplace-listings. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
-
-* ...
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
