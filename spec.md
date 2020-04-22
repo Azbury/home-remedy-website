@@ -11,7 +11,7 @@ Specs:
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) Users.elderly 
 URL: /users/elderly
 - [x] Include signup (how e.g. Devise) URL: /users/new
-- [ ] Include login (how e.g. Devise)
+- [x] Include login (how e.g. Devise) URL: /signin
 - [ ] Include logout (how e.g. Devise)
 - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [ ] Include nested resource show or index (URL e.g. users/2/recipes)
