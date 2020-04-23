@@ -1,5 +1,7 @@
 <h1>Sign in to your account on The Home Remedy Website!</h1>
-
+<% flash.each do |type, msg| %>
+    <%= msg %>
+<% end %>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
     <label>Username:</label><br>
     <%= text_field_tag :'user[username]' %><br>

@@ -22,12 +22,13 @@ class SessionsController < ApplicationController
         end
         session[:user_id] = user.try(:id)
         redirect_to user_path(user)
-      elsif @user = User.find_by(username: params[:user][:username])
-        return head(:forbidden) unless @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
+      elsif user = User.find_by(username: params[:user][:username])
+        user = user.try(:authenticate, params[:password])
+        return redirect_to signin_path, notice: "Incorrect Password" unless user
+        session[:user_id] = user.id
+        redirect_to user_path(user)
       else
-        render 'new'
+        redirect_to signin_path, notice: "Username not found"
       end
     
     end
