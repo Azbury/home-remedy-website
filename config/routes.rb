@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :remedies, only: [:create, :index] do
     resources :comments, only: [:new]
   end
+  resources :comments, only: [:create]
   resources :categories, only: [:index, :show]
   get '/users/elderly', to: 'users#elderly'
   get '/signin', to: 'sessions#new'
