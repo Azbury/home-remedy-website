@@ -1,10 +1,12 @@
-<h1>Sign in to your account on The Home Remedy Website!</h1>
+<h3>Sign in to your account</h3>
 <% flash.each do |type, msg| %>
     <%= msg %>
 <% end %>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
     <label>Username:</label><br>
     <%= text_field_tag :'user[username]' %><br>
+    <label>Password:</label><br>
     <%= password_field_tag(:password, nil, class: "form-control") %>
     <%= submit_tag "Sign In" %>
 <% end %>
+<h3>Don't have an account yet? Sign up for one <%= link_to 'here', new_user_path%></h3>
