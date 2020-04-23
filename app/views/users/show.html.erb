@@ -1,9 +1,9 @@
-<%= @user.username %>
+<h4>Username: <%= @user.username %></h4>
 <%= @user.first_name %>
 <%= @user.last_name %>
 <%= @user.age %>
 <%= @user.bio %>
-<h1>Comments you have made!</h1>
+<h3>Comments you have made!</h3>
 <% @user.comments.each do |comment| %>
     <%= "You said #{comment.content}" %>
     <%= "on the remedy #{comment.remedy.title}" %><br>
