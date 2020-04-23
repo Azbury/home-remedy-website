@@ -1,12 +1,13 @@
 <h4>Username: <%= @user.username %></h4>
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.age %>
-<%= @user.bio %>
-<h3>Comments you have made!</h3>
+<h4>First Name: <%= @user.first_name %></h4>
+<h4>Last Name: <%= @user.last_name %></h4>
+<h4>Age: <%= @user.age %></h4>
+<p><%= @user.bio %><p>
+<h2>Remedies You Have Commented On</h2>
 <% @user.comments.each do |comment| %>
-    <%= "You said #{comment.content}" %>
-    <%= "on the remedy #{comment.remedy.title}" %><br>
+    <%= "You said #{comment.content} on the remedy"%>
+    <%= link_to "#{comment.remedy.title}", user_remedy_path(id: comment.remedy.id, user_id: @user.id)%><br>
+    <br>
 <% end %>
 <%= link_to "New Remedy", new_user_remedy_path(@user) %>
 <%= link_to "See Remedies", remedies_path %>
