@@ -3,7 +3,7 @@ describe 'Feature Test: User Signup', :type => :feature do
 
   it 'offers signup with GitHub' do
     visit '/'
-    expect(page).to have_content('Signing in with the GitHub strategy')
+    expect(page).to have_content('Signing in using your Github Account')
   end
 
   it 'successfully signs up' do
@@ -53,7 +53,6 @@ describe 'Feature Test: User Signup', :type => :feature do
     create_standard_user
     visit '/users/1'
     expect(current_path).to eq('/')
-    expect(page).to have_content("Sign Up")
   end
 
 end
