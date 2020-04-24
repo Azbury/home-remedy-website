@@ -3,4 +3,6 @@
     <%= link_to "Show #{remedy.title}", user_remedy_path(id: remedy.id, user_id: remedy.user_id) %><br>
 <% end %>
 <br>
+<%= link_to "List of Categories", categories_path %><br>
+<br>
 <%= link_to "Go to your account page", user_path(current_user) %>
