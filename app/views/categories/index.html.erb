@@ -1,3 +1,6 @@
+<h2>List of Categories</h2>
 <% @categories.each do |category| %>
     <%= link_to "Show #{category.name}", category_path(category) %><br>
 <% end %>
+<br>
+<%= link_to "List of Remedies", remedies_path %>
