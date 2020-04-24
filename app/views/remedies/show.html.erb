@@ -10,3 +10,4 @@
 <% @remedy.comments.each do |comment| %>
     <h4><%= link_to "#{comment.user.username}", user_path(comment.user) %> said <%= comment.content %></h4>
 <% end %>
+<h4>Back to list of remedies <%= link_to "here", remedies_path %></h4>
