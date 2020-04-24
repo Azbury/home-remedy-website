@@ -1,0 +1,4 @@
+<h2>List of all the Users of the Site!</h2>
+<% @users.each do |user| %>
+    <%= link_to "#{user.username}", user_path(user) %><br>
+<% end %>
