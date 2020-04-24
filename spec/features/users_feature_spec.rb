@@ -115,17 +115,17 @@ describe 'Feature Test: Remedies', :type => :feature do
   end
 
   it 'has a link from the user show page to the remedies index page' do
-    expect(page).to have_content("See Remedies")
-    click_link('See Remedies')
+    expect(page).to have_content("See a list of all Remedies")
+    click_link('See a list of all Remedies')
   end
 
   it 'links from the user show page to the remedies index page' do
-    click_link('See Remedies')
+    click_link('See a list of all Remedies')
     expect(current_path).to eq('/remedies')
   end
 
   it 'prevents users from editing/deleting/adding remedies on the index page' do
-    click_link('See Remedies')
+    click_link('See a list of all Remedies')
     expect(current_path).to eq('/remedies')
     expect(page).to_not have_content("edit")
     expect(page).to_not have_content("delete")
@@ -133,21 +133,21 @@ describe 'Feature Test: Remedies', :type => :feature do
   end
 
   it 'has titles of the remedies on the remedies index page' do
-    click_link('See Remedies')
+    click_link('See a list of all Remedies')
     expect(page).to have_content("#{@corona.title}")
     expect(page).to have_content("#{@juice.title}")
     expect(page).to have_content("#{@pepto.title}")
   end
 
   it "has links on the remedies index page to the remedies' show pages" do
-    click_link('See Remedies')
+    click_link('See a list of all Remedies')
     expect(page).to have_content("Show #{@corona.title}")
     expect(page).to have_content("Show #{@juice.title}")
     expect(page).to have_content("Show #{@pepto.title}")
   end
 
   it "links from the remedies index page to the remedies' show pages" do
-    click_link('See Remedies')
+    click_link('See a list of all Remedies')
     click_link("Show #{@pepto.title}")
     expect(current_path).to eq("/users/1/remedies/2")
   end
