@@ -21,3 +21,5 @@
   <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>
+
+<h4>Back to remedy <%= link_to "here", user_remedy_path(id: @comment.remedy_id, user_id: @comment.remedy.user_id) %></h4>
