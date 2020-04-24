@@ -1,3 +1,6 @@
+<h2>All the Elders!</h2>
 <% @elderly.each do |elder| %>
-    <%= elder.username %>
+    <%= link_to "#{elder.username}", user_path(elder) %><br>
 <% end %>
+<br>
+<%= link_to "Back to all the users", users_path %>
