@@ -2,4 +2,5 @@
 <% @users.each do |user| %>
     <%= link_to "#{user.username}", user_path(user) %><br>
 <% end %>
+<h4>Click <%= link_to "here", '/users/elderly' %> to see a list of all the elderly users.</h4>
 <h4>Click <%= link_to "here", user_path(current_user) %> to go back to your account page.</h4>
