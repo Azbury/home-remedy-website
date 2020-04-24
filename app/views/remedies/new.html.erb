@@ -24,3 +24,5 @@
   <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
   <%= f.submit %>
 <% end %>
+
+<h3>Back to account page <%= link_to "here", user_path(current_user)%></h3>
