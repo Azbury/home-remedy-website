@@ -14,7 +14,11 @@ class RemediesController < ApplicationController
     end
 
     def new
-        @remedy = Remedy.new(user_id: params[:user_id])
+        if params[:user_id].to_i != session[:user_id]
+            redirect_to user_path(current_user), notice: "Can only make a new remedy from your own account."
+        else
+            @remedy = Remedy.new(user_id: params[:user_id])
+        end
     end
 
     def create

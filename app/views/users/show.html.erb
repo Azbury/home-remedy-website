@@ -1,3 +1,6 @@
+<% flash.each do |type, msg| %>
+    <%= msg %>
+<% end %>
 <h4>Username: <%= @user.username %></h4>
 <h4>First Name: <%= @user.first_name %></h4>
 <h4>Last Name: <%= @user.last_name %></h4>
