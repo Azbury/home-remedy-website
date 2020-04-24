@@ -1,5 +1,10 @@
 <h2><%= @remedy.title %></h2>
 <p>Description: <%= @remedy.description%><p>
+<h4>Categories: </h4>
+<% @remedy.categories.each do |category| %>
+    <%= link_to "#{category.name}", category_path(category) %>
+<% end %>
+<h4>Written by: <%= link_to "#{@remedy.user.username}", user_path(@remedy.user) %></h3>
 <%= link_to "New Comment", new_remedy_comment_path(@remedy) %><br>
 <h3>Comments</h3>
 <% @remedy.comments.each do |comment| %>
