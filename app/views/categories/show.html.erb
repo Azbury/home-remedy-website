@@ -1,4 +1,7 @@
-<%= @category.name %>
+<h2><%= @category.name %></h2>
+<h3>List of Remedies in this Category</h3>
 <% @category.remedies.each do |remedy|%>
-    <%= link_to "Show #{remedy.title}", user_remedy_path(id: remedy.id, user_id: remedy.user_id) %>
+    <%= link_to "Show #{remedy.title}", user_remedy_path(id: remedy.id, user_id: remedy.user_id) %><br>
 <% end %>
+<h4>Back to category list <%= link_to "here", categories_path %></h4>
+<h4>Back to list of all remedies <%= link_to "here", remedies_path %></h4>
