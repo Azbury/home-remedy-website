@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
             user.username = auth['info']['nickname']
             user.first_name = auth['info']['name'].split(' ').first
             user.last_name = auth['info']['name'].split(' ').last
-            user.age = 0
+            user.age = 1
             user.bio = auth['extra']['raw_info']['bio']
             user.password = 'password'
           end

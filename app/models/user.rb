@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
     scope :elderly, -> { where("age >= 60") }
     validates :username, uniqueness: true
     validates :username, :first_name, :last_name, :age, :bio, presence: true
+    validates :age, numericality: { greater_than: 0}
     validates :bio, length: { maximum: 500 }
 end
