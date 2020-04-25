@@ -1,0 +1,22 @@
+<% if @remedy.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@remedy.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+ 
+    <ul>
+    <% @remedy.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= f.label :title %>
+<%= f.hidden_field :user_id %>
+<%= f.text_field :title %>
+<br/>
+<%= f.label :description %>
+<%= f.text_area :description %>
+<%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+<%= f.submit %>

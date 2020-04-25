@@ -37,6 +37,12 @@ class RemediesController < ApplicationController
         end
     end
 
+    def update
+        @remedy = Remedy.find(params[:id])
+        @remedy.update(remedy_params)
+        redirect_to user_remedy_path(id: @remedy.id, user_id: @remedy.user.id)
+    end
+    
     private
 
     def remedy_params
