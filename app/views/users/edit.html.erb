@@ -1,5 +1,8 @@
 <h2>Edit your account</h2>
-
+<% flash.each do |type, msg| %>
+    <%= msg %>
+<% end %>
+<br>
 <%= form_for @user  do |f| %>
   <%= render :partial => "form", :locals=>{:f=>f} %>
 <% end %>
