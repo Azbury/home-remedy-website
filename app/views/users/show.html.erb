@@ -6,6 +6,7 @@
 <h4>Last Name: <%= @user.last_name %></h4>
 <h4>Age: <%= @user.age %></h4>
 <p><%= @user.bio %><p>
+<%= link_to "Edit your account", edit_user_path(@user) %>
 <h2>Remedies You Have Posted</h2>
 <% @user.remedies.each do |remedy| %>
     <%= link_to "#{remedy.title}", user_remedy_path(id: remedy.id, user_id: @user.id)%><br>
