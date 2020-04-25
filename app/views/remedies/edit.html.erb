@@ -1,0 +1,7 @@
+<h2>Edit Your Remedy</h2>
+
+<%= form_for @remedy  do |f| %>
+  <%= render :partial => "form", :locals=>{:f=>f} %>
+<% end %>
+
+<h3>Back to your remedy <%= link_to "here", user_remedy_path(id: @remedy.id, user_id: @remedy.user.id)%></h3>
