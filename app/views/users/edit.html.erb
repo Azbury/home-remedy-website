@@ -1,0 +1,7 @@
+<h2>Edit your account</h2>
+
+<%= form_for @user  do |f| %>
+  <%= render :partial => "form", :locals=>{:f=>f} %>
+<% end %>
+
+<%= link_to "Back to account page", user_path(@user) %>
