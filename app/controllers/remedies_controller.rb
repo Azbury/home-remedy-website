@@ -29,6 +29,19 @@ class RemediesController < ApplicationController
         end
     end
 
+    def edit
+        if params[:user_id]
+          user = User.find_by(id: params[:user_id])
+          if user.nil?
+            redirect_to users_path, alert: "User not found."
+          else
+            @remedy = user.remedies.find_by(id: params[:id])
+            redirect_to user_remedies_path(user), alert: "Remedy not found." if @remedy.nil?
+          end
+        else
+          @remedy = Remedy.find(params[:id])
+        end
+    end
     private
 
     def remedy_params
