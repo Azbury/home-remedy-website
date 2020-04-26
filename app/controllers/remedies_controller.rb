@@ -1,5 +1,6 @@
 class RemediesController < ApplicationController
 
+    #list of remedies
     def index
         if params[:user_id]
             @remedies = User.find(params[:user_id]).remedies
@@ -8,11 +9,14 @@ class RemediesController < ApplicationController
         end
     end
 
+    #remedy show page
     def show
         @remedy = Remedy.find(params[:id])
     end
 
+    #new remedy page
     def new
+        #does not let a user make a remedy from another users account
         if params[:user_id].to_i != session[:user_id]
             redirect_to user_path(current_user), notice: "Can only make a new remedy from your own account."
         else
@@ -20,16 +24,20 @@ class RemediesController < ApplicationController
         end
     end
 
+    #handles creating a new remedy
     def create
         @remedy = Remedy.new(remedy_params)
         if @remedy.save
             redirect_to user_remedy_path(id: @remedy.id, user_id: current_user.id)
         else
+            #will render new remedy form if not meeting all validations
             render :new
         end
     end
 
+    #edit remedy page
     def edit
+        #does not let a user edit a remedy from another users account
         if params[:user_id].to_i != session[:user_id]
             redirect_to user_path(current_user), notice: "Can only edit remedies you created."
         else
@@ -37,6 +45,7 @@ class RemediesController < ApplicationController
         end
     end
 
+    #handles updating remedy
     def update
         @remedy = Remedy.find(params[:id])
         @remedy.update(remedy_params)
