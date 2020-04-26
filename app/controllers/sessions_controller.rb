@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
     def home
     end
 
-    #new account
+    #sign in
     def new
       @user = User.new
     end
 
-    #handles creation of new account
+    #handles signing of an account
     def create
       #if singing in through github
       if auth
