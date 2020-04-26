@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
       if auth
         user = User.find_by(id: auth['uid'])
         if !user.nil?
-          session[:user_id] = auth['uid']
-          redirect_to user_path(User.find(auth['uid']))
+          session[:user_id] = user.id
+          redirect_to user_path(user)
         else
           user = User.create(:id => auth['uid']) do |user|
             user.username = auth['info']['nickname']
