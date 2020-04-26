@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
+    #new comment page
     def new
         @comment = Comment.new(remedy_id: params[:remedy_id], user_id: session[:user_id])
     end
 
+    #handles creating new comments
     def create
         @comment = Comment.new(comment_params)
         if @comment.save
