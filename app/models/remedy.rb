@@ -6,10 +6,4 @@ class Remedy < ActiveRecord::Base
     has_many :categories, :through => :remedy_categories
     validates :title, :description, presence: true
     validates :title, uniqueness: true
-    def categories_attributes=(category_attributes)
-        category_attributes.values.each do |category_attribute|
-          category = Category.find_or_create_by(category_attribute)
-          self.categories << category
-        end
-    end
 end
