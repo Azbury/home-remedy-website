@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to user_remedy_path(id: @comment.remedy_id, user_id: @comment.user_id)
         else
+            #if user does not meet the validations for a comment will create a new form
             render :new
         end
     end
