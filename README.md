@@ -13,6 +13,7 @@ This Ruby on Rails Program creates a website that allows you to perform all user
 Type the commands below and go to the link provided.
 
     $ rake db:migrate
+    $ rake db:seed
     $ rails s
 
 ## Contributing
