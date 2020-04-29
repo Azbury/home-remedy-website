@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :remedies, only: [:create, :index, :update] do
     resources :comments, only: [:new]
   end
+  get '/longestremedytitle', to: 'remedies#longesttitle'
   resources :comments, only: [:create]
   resources :categories, only: [:index, :show]
   get '/users/elderly', to: 'users#elderly'

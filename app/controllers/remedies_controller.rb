@@ -51,6 +51,10 @@ class RemediesController < ApplicationController
         @remedy.update(remedy_params)
         redirect_to user_remedy_path(id: @remedy.id, user_id: @remedy.user.id)
     end
+
+    def longesttitle
+        @remedy_with_longest_title = Remedy.longest_title.first
+    end
     
     private
 
