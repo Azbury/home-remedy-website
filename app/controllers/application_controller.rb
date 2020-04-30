@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
     
     #returns current user
     def current_user
-      User.find_by(id: session[:user_id])
+      @user ||= User.find_by(id: session[:user_id])
     end
 end
