@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             @user = User.new
         else
             #if user is already signed in and trying to make an account will redirect to your account page.
-            redirect_to user_path(User.find_by(id: session[:user_id])), notice: "You already have an account!"
+            redirect_to user_path(User.find_by(id: current_user.id)), notice: "You already have an account!"
         end
     end
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     #edit user page
     def edit
         #will not users edit others users account
-        if params[:id].to_i != session[:user_id]
+        if params[:id].to_i != current_user.id
             redirect_to user_path(current_user), notice: "Can only edit your own account."
         else
             @user = User.find(params[:id])

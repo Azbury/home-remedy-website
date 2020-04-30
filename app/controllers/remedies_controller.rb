@@ -17,7 +17,7 @@ class RemediesController < ApplicationController
     #new remedy page
     def new
         #does not let a user make a remedy from another users account
-        if params[:user_id].to_i != session[:user_id]
+        if params[:user_id].to_i != current_user.id
             redirect_to user_path(current_user), notice: "Can only make a new remedy from your own account."
         else
             @remedy = Remedy.new(user_id: params[:user_id])
@@ -38,7 +38,7 @@ class RemediesController < ApplicationController
     #edit remedy page
     def edit
         #does not let a user edit a remedy from another users account
-        if params[:user_id].to_i != session[:user_id]
+        if params[:user_id].to_i != current_user.id
             redirect_to user_path(current_user), notice: "Can only edit remedies you created."
         else
           @remedy = Remedy.find(params[:id])
